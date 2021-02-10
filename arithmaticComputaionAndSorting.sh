@@ -15,7 +15,8 @@ computeExp (){
       echo "Error:Divid by Zero"
     fi
     res3=$(($c+($a/$b)))
-    echo "$res1 $res2 $res3"
+    res4=$(($a%$b+$c)) #UC5
+    echo "$res1 $res2 $res3 $res4"
 }
 takeInputs
 computeExp
