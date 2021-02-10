@@ -8,9 +8,9 @@ echo "a b c Values are:" $a $b $c
 }
 #UC2
 computeExp (){
-    res=$(($a+$b*$c))
-  
-    echo "$res"
+    res1=$(($a+$b*$c))
+    res2=$(($a*$b+$c))
+    echo "$res1 $res2"
 }
 takeInputs
 computeExp
