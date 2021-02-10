@@ -22,6 +22,36 @@ storeInArray (){
        array[$keys]=${Dictionary[$keys]} 
     done
 }
+#UC8
+showInDescOrder (){
+    tempArray=()
+    for index in ${!array[@]}
+    do
+        tempArray[$index]=${array[$index]}
+    done
+    for((i=0; i<${#tempArray[@]}; i++))
+    do
+        index=$i
+        max=${tempArray[$i]}
+        for((j=$(($i+1)); j<$((${#tempArray[@]}-1)); j++))
+        do
+            if [ $max -lt ${tempArray[$j]} ]
+            then
+                max=${tempArray[$j]}
+                index=$j
+            fi
+        done
+        temp=${tempArray[$i]}
+        tempArray[$i]=${tempArray[$index]}
+        tempArray[$index]=$temp
+    done
+    for i in ${!tempArray[@]}
+    do
+        echo ${tempArray[$i]}
+    done
+    echo ${tempArray[@]}
+    unset tempArray
+}
 #UC2
 computeExp (){
     res1=$(($a+$b*$c))
@@ -43,3 +73,5 @@ computeExp
 echo "Values Stored in Dictionary" ${Dictionary[@]}
 storeInArray
 echo "Array Elements" ${array[@]}
+showInDescOrder
+
