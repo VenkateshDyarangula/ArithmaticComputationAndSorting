@@ -9,8 +9,13 @@ echo "a b c Values are:" $a $b $c
 #UC2
 computeExp (){
     res1=$(($a+$b*$c))
-    res2=$(($a*$b+$c))
-    echo "$res1 $res2"
+    res2=$(($a*$b+$c)) #UC3
+    if [ $b -eq 0 ]   #UC4
+    then 
+      echo "Error:Divid by Zero"
+    fi
+    res3=$(($c+($a/$b)))
+    echo "$res1 $res2 $res3"
 }
 takeInputs
 computeExp
