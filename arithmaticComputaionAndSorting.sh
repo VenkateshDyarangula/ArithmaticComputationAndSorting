@@ -6,5 +6,10 @@ read -p "Enter b Value:" b
 read -p "Enter c Value:" c
 echo "a b c Values are:" $a $b $c
 }
+computeExp (){
+    res=$(($a+$b*$c))
+   echo "$res"
+}
 takeInputs
+computeExp
 
