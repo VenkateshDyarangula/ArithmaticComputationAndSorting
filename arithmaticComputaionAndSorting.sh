@@ -1,8 +1,10 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 #Declarartions
 declare -A array
+declare -A array2
 kay=0
+count=0
 echo "Welcome to ArithmaticComputaion"
 takeInputs (){
 read -p "Enter a Value:" a
@@ -22,8 +24,8 @@ storeInArray (){
        array[$keys]=${Dictionary[$keys]} 
     done
 }
-#UC8
-showInDescOrder (){
+#UC8&UC9
+showInOrder (){
     tempArray=()
     for index in ${!array[@]}
     do
@@ -45,12 +47,27 @@ showInDescOrder (){
         tempArray[$i]=${tempArray[$index]}
         tempArray[$index]=$temp
     done
-    for i in ${!tempArray[@]}
-    do
-        echo ${tempArray[$i]}
-    done
-    echo ${tempArray[@]}
+    case $1 in
+        -1) #prints in descending order
+            for i in ${!tempArray[@]}
+            do
+                echo ${tempArray[$i]}
+            done
+            echo "Elements in Descending Oreder:" ${tempArray[@]}
+            ;;
+        1)  #prints in ascending order
+            for((i=$((${#tempArray[@]}-1)); i>=0; i--))
+            do
+                 tempArray2[count++]=${tempArray[$i]}
+            done
+            echo "Elements in Ascending Order:" ${tempArray2[@]}
+            ;;
+        *)
+            echo "Wrong Argument"
+            ;;
+    esac
     unset tempArray
+    unset tempArray2
 }
 #UC2
 computeExp (){
@@ -73,5 +90,6 @@ computeExp
 echo "Values Stored in Dictionary" ${Dictionary[@]}
 storeInArray
 echo "Array Elements" ${array[@]}
-showInDescOrder
+showInOrder -1
+showInOrder 1
 
