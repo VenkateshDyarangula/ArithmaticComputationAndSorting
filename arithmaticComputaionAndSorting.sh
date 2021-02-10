@@ -11,7 +11,7 @@ computeExp (){
     res1=$(($a+$b*$c))
     res2=$(($a*$b+$c)) #UC3
     if [ $b -eq 0 ]   #UC4
-    then 
+    then
       echo "Error:Divid by Zero"
     fi
     res3=$(($c+($a/$b)))
