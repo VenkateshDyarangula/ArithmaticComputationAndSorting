@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -x
 
 #Declarartions
 declare -A array
