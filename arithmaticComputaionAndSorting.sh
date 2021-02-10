@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
 #Declarartions
+declare -A array
 kay=0
 echo "Welcome to ArithmaticComputaion"
 takeInputs (){
@@ -13,6 +14,13 @@ echo "a b c Values are:" $a $b $c
 storeInDictionary (){
     Dictionary[$key]=$1
     ((key++))
+}
+#UC7
+storeInArray (){
+    for keys in ${!Dictionary[@]}
+    do 
+       array[$keys]=${Dictionary[$keys]} 
+    done
 }
 #UC2
 computeExp (){
@@ -33,3 +41,5 @@ computeExp (){
 takeInputs
 computeExp
 echo "Values Stored in Dictionary" ${Dictionary[@]}
+storeInArray
+echo "Array Elements" ${array[@]}
