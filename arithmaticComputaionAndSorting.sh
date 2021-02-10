@@ -8,7 +8,7 @@ echo "a b c Values are:" $a $b $c
 }
 computeExp (){
     res=$(($a+$b*$c))
-   echo "$res"
+    echo "$res"
 }
 takeInputs
 computeExp
